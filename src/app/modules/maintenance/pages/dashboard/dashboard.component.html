@@ -1,0 +1,34 @@
+<div class="dashboard">
+  <div class="dashboard__status" *ngIf="progressMaintenances.length > 0">
+    <h2 class="dashboard__status__title">PROGRESS</h2>
+    <ul class="dashboard__status__list">
+      <li class="dashboard__status__item" *ngFor="let maintenance of progressMaintenances">
+        <app-maintenance-car-card 
+          [maintenance]="maintenance"
+          (changeStatus)="changeStatus($event)"></app-maintenance-car-card>
+      </li>
+    </ul>
+  </div>
+
+  <div class="dashboard__status" *ngIf="progressMaintenances.length > 0">
+    <h2 class="dashboard__status__title">WAITING</h2>
+    <ul class="dashboard__status__list">
+      <li class="dashboard__status__item" *ngFor="let maintenance of waitingMaintenances">
+        <app-maintenance-car-card 
+          [maintenance]="maintenance"
+          (changeStatus)="changeStatus($event)"></app-maintenance-car-card>
+      </li>
+    </ul>
+  </div>
+
+  <div class="dashboard__status" *ngIf="waitingMaintenances.length > 0">
+    <h2 class="dashboard__status__title">DONE</h2>
+    <ul class="dashboard__status__list">
+      <li class="dashboard__status__item" *ngFor="let maintenance of doneMaintenances">
+        <app-maintenance-car-card 
+          [maintenance]="maintenance"
+          (changeStatus)="changeStatus($event)"></app-maintenance-car-card>
+      </li>
+    </ul>
+  </div>
+</div>

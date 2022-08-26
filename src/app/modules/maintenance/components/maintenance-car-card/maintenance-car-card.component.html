@@ -1,0 +1,25 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{ maintenance.customer.name }}</mat-card-title>
+    <mat-card-subtitle>{{ maintenance.customer.cpf }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="https://img.freepik.com/free-vector/car-vehicle-cartoon-vector-icon-illustration-transportation-object-icon-concept-isolated-premium_138676-4369.jpg?w=2000">
+  <mat-card-content>
+    <p>
+      {{ maintenance.car.brand }}
+      {{ maintenance.car.model }}
+      {{ maintenance.car.plate }}
+      {{ maintenance.description }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button 
+      mat-button 
+      *ngIf="statusChange[maintenance.status]"
+      (click)="handleMoveButton(maintenance, statusChange[maintenance.status])">
+
+      MOVE TO {{ statusChange[maintenance.status] }}
+    </button>
+  </mat-card-actions>
+</mat-card>

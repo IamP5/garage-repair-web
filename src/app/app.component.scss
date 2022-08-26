@@ -1,0 +1,22 @@
+.container {
+  display: grid;
+  grid-template-rows: auto;
+}
+
+header {
+  flex: 1;
+  
+  height: 12vh;
+  box-shadow: 0 1px 10px;
+  background-color: rgb(130, 255, 143);
+}
+
+main {
+  flex: 1;
+  background-color: rgb(82, 82, 82);
+}
+
+footer {
+  height: 18vh;
+  background-color: rgb(48, 48, 48);
+}
