@@ -1,34 +1,62 @@
 <div class="dashboard">
-  <div class="dashboard__status" *ngIf="progressMaintenances.length > 0">
-    <h2 class="dashboard__status__title">PROGRESS</h2>
-    <ul class="dashboard__status__list">
-      <li class="dashboard__status__item" *ngFor="let maintenance of progressMaintenances">
-        <app-maintenance-car-card 
-          [maintenance]="maintenance"
-          (changeStatus)="changeStatus($event)"></app-maintenance-car-card>
-      </li>
-    </ul>
+  <div class="dashboard__status">
+    <div *ngIf="progressMaintenances.length > 0; else emptyTemplate">
+      <h2 class="dashboard__status__title">PROGRESS</h2>
+      <ul class="dashboard__status__list">
+        <li class="dashboard__status__item" *ngFor="let maintenance of progressMaintenances">
+          <app-maintenance-car-card 
+            [maintenance]="maintenance"
+            (changeStatus)="changeStatus($event)"></app-maintenance-car-card>
+        </li>
+      </ul>
+    </div>
   </div>
 
-  <div class="dashboard__status" *ngIf="progressMaintenances.length > 0">
-    <h2 class="dashboard__status__title">WAITING</h2>
-    <ul class="dashboard__status__list">
-      <li class="dashboard__status__item" *ngFor="let maintenance of waitingMaintenances">
-        <app-maintenance-car-card 
-          [maintenance]="maintenance"
-          (changeStatus)="changeStatus($event)"></app-maintenance-car-card>
-      </li>
-    </ul>
+  <div class="dashboard__status">
+    <div *ngIf="waitingMaintenances.length > 0; else emptyTemplate">
+      <h2 class="dashboard__status__title">WAITING</h2>
+      <ul class="dashboard__status__list">
+        <li class="dashboard__status__item" *ngFor="let maintenance of waitingMaintenances">
+          <app-maintenance-car-card 
+            [maintenance]="maintenance"
+            (changeStatus)="changeStatus($event)"></app-maintenance-car-card>
+        </li>
+      </ul>
+    </div>
   </div>
 
-  <div class="dashboard__status" *ngIf="waitingMaintenances.length > 0">
-    <h2 class="dashboard__status__title">DONE</h2>
-    <ul class="dashboard__status__list">
-      <li class="dashboard__status__item" *ngFor="let maintenance of doneMaintenances">
-        <app-maintenance-car-card 
-          [maintenance]="maintenance"
-          (changeStatus)="changeStatus($event)"></app-maintenance-car-card>
+  <div class="dashboard__status">
+    <div *ngIf="doneMaintenances.length > 0; else emptyTemplate">
+      <h2 class="dashboard__status__title">DONE</h2>
+      <ul class="dashboard__status__list">
+        <li class="dashboard__status__item" *ngFor="let maintenance of doneMaintenances">
+          <app-maintenance-car-card 
+            [maintenance]="maintenance"
+            (changeStatus)="changeStatus($event)"></app-maintenance-car-card>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="dashboard__customer-area">
+    <h2 class="dashboard__customer-area__title">Customers</h2>
+    <ul class="dashboard__customer-area__list">
+      <li class="dashboard__customer-area__item" *ngFor="let customer of customers">
+        <mat-card>
+          <mat-card-title>{{ customer.name }}</mat-card-title>
+          <mat-card-subtitle>{{ customer.cpf }}</mat-card-subtitle>
+          <mat-card-actions>
+            <button mat-button>WPP</button>
+            <button mat-button>EMAIL</button>
+          </mat-card-actions>
+        </mat-card>
       </li>
     </ul>
   </div>
 </div>
+
+<ng-template #emptyTemplate>
+  <div class="empty-template">
+    <h2>No cars in this section</h2>
+  </div>
+</ng-template>

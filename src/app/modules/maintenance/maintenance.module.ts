@@ -6,6 +6,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { MaintenanceCarCardComponent } from './components/maintenance-car-card/maintenance-car-card.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 
 
@@ -18,7 +19,8 @@ import { MatButtonModule } from '@angular/material/button';
     CommonModule,
     MaintenanceRoutingModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatGridListModule
   ]
 })
 export class MaintenanceModule { }

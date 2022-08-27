@@ -7,13 +7,18 @@ header {
   flex: 1;
   
   height: 12vh;
-  box-shadow: 0 1px 10px;
-  background-color: rgb(130, 255, 143);
+
+  display: flex;
+  align-items: center;
+
+  background-color: rgb(48, 48, 48);
+  color: white;
+  padding: 0 20px 0 20px;
 }
 
 main {
   flex: 1;
-  background-color: rgb(82, 82, 82);
+  background-color: #e3e3e3;
 }
 
 footer {
