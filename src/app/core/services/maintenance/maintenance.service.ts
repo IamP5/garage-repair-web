@@ -15,4 +15,8 @@ export class MaintenanceService {
   getMaintenances(): Observable<Maintenance[]> {
     return this.http.get<Maintenance[]>(this.baseUrl);
   }
+
+  updateMaintenance(id: string, status: string): Observable<Maintenance> {
+    return this.http.patch<Maintenance>(`${this.baseUrl}/${id}`, { status });
+  }
 }

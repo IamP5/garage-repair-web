@@ -17,7 +17,7 @@
     <button 
       mat-button 
       *ngIf="statusChange[maintenance.status]"
-      (click)="handleMoveButton(maintenance, statusChange[maintenance.status])">
+      (click)="handleMoveButton(statusChange[maintenance.status])">
 
       MOVE TO {{ statusChange[maintenance.status] }}
     </button>
